@@ -5,11 +5,13 @@ This is a project that aims to collect social protests against public firms and 
 LexisNexis, ProQuest, RavenPack
 
 # Steps
-## utilize the label from RavenPack
+## Utilize the label from RavenPack
 
 We first collected the news that are 100% related to public firms. 
 
-## link the news from RavenPack to LexisNexis
+## Link the news from RavenPack to LexisNexis
+
+Content matching to get the full news. 
 
 
 ## Set up machine learning to categorize the news into needed categories
