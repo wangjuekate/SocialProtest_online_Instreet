@@ -2,6 +2,7 @@ This is a project that aims to collect social protests against public firms and 
 
 # Define digital activism against firms
 
+```mermaid
 graph TD
     A[Identify Digital Activism Campaign] --> B{Relevant to Business?}
     B -->|Yes| C[Assess Reach and Virality]
