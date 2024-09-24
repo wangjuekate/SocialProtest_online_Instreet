@@ -2,7 +2,9 @@ This is a project that aims to collect social protests against public firms and 
 
 # Define digital activism against firms
 
+
 ```mermaid
+
 graph TD
     A[Identify Digital Activism Campaign] --> B{Relevant to Business?}
     B -->|Yes| C[Assess Reach and Virality]
@@ -16,7 +18,9 @@ graph TD
     I --> K{High Impact Potential?}
     K -->|Yes| L[Prioritize Response]
     K -->|No| M[Monitor and Reassess]
+
 ```mermaid
+
 
 ## Relevance to business operations:
 Digital activism that directly relates to a firm's products, services, practices, or industry is most likely to matter. This could include:
