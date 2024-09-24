@@ -2,6 +2,8 @@ This is a project that aims to collect social protests against public firms and 
 
 # Define digital activism against firms
 
+Digital activism is a tactic that is defined as activists using digital technologies to present their requests. However, not all the digital activism is critical or matter as it can be effortless just to click or tweet online. When the digital activism capture news media attention means that they exert an impact and should be paid attention to. 
+
 
 ```mermaid
 
