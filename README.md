@@ -19,7 +19,7 @@ graph TD
     K -->|Yes| L[Prioritize Response]
     K -->|No| M[Monitor and Reassess]
 
-```mermaid
+```
 
 
 ## Relevance to business operations:
