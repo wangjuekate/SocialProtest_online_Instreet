@@ -4,16 +4,19 @@ This is a project that aims to collect social protests against public firms and 
 
 Digital activism is a tactic that is defined as activists using digital technologies to present their requests. However, not all the digital activism is critical or matter as it can be effortless just to click or tweet online. When the digital activism capture news media attention means that they exert an impact and should be paid attention to. 
 
+The data verification
+
 
 ```mermaid
 
 graph TD
-    A[Identify Digital Activism Campaign] --> B{Relevant to Business?}
-    B -->|Yes| C[Assess Reach and Virality]
+    A[Identify Digital Activism Campaign] --> B{Media coverage?}
+    B -->|Yes| C[Keep in dataset]
     B -->|No| J[Low Priority]
-    C --> D[Analyze Stakeholder Engagement]
-    D --> E[Conduct Sentiment Analysis]
-    E --> F[Evaluate Potential Business Impact]
+    C --> D[Business related]
+    D -->|Yes| E[Keep in dataset]
+    D -->|No| F[Low Priority]
+    E --> G[Data verification on ]
     F --> G[Consider Longevity and Persistence]
     G --> H[Assess Alignment with Societal Trends]
     H --> I[Monitor Media Coverage]
