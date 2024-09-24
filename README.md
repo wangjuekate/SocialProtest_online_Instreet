@@ -16,7 +16,7 @@ graph TD
     I --> K{High Impact Potential?}
     K -->|Yes| L[Prioritize Response]
     K -->|No| M[Monitor and Reassess]
-
+```mermaid
 
 ## Relevance to business operations:
 Digital activism that directly relates to a firm's products, services, practices, or industry is most likely to matter. This could include:
