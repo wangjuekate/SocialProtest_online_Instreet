@@ -39,19 +39,21 @@ The flow chat is as follows
 graph TD
     A[Collect protests event against public firms from LexisNexis, Proquest, GDELT Project, RavenPack and Factiva] --> B{Public firms and protest-related keywords are both mentioned in the news/time period between 2008 and 2019}
     B -->|Yes| C[Keep in dataset] --> C{Firms is the target of the protest}
-    B -->|No| J[Low Priority]
-    C --> |Yes| C[Keep in dataset]--> D{Is it physically present on the street}
-    C -->|No| K[Low Priority]
-
-    D -->|Yes| E[Label as in-street protests]
-    D -->|No| 
-    E --> G[Data verification on ]
-    F --> G[Consider Longevity and Persistence]
-    G --> H[Assess Alignment with Societal Trends]
-    H --> I[Monitor Media Coverage]
-    I --> K{High Impact Potential?}
-    K -->|Yes| L[Prioritize Response]
-    K -->|No| M[Monitor and Reassess]
+    B -->|No| 
+    C --> |Yes| C[Keep in dataset]
+    C -->|No| 
+    C--> D1{Is it physically present on the street}
+    D1 -->|Yes| E[Label as in-street protests]
+    D1 -->|No|
+    C--> D2{Does it include spectator activities}
+    D2 -->|Yes| F[Label as digital spectator protests]
+    D2 -->|No|
+    C --> D3{Does it inlclude transitional activities}
+    D3 -->|Yes| G[Label as digital spectator protests]
+    D3 -->|No|
+    C --> D4{Does it inlclude gladiatorial activities}
+    D4 -->|Yes| H[Label as digital spectator protests]
+    D4 -->|No|
 
 ```
 
