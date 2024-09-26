@@ -1,21 +1,50 @@
-This is a project that aims to collect social protests against public firms and categorize them into different categories. 
+Digital and In-street Activism Events
 
-# Define digital activism against firms
+# Goal of this project
 
-Digital activism is a tactic that is defined as activists using digital technologies to present their requests. However, not all the digital activism is critical or matter as it can be effortless just to click or tweet online. When the digital activism capture news media attention means that they exert an impact and should be paid attention to. 
+## Identify the protest events against public firms in the United States covered by major online and traditional media from 2008 to 2019
 
-The data verification
+## Classify these events into in-street, digital spectator, digital transitional, and digital gladiatorial activities
 
+    Digital activism is a tactic that is defined as activists using digital technologies to present their requests, whereas, in-street activism is a tactic that is defined as activists physically present on the street. 
+    
+    George and Leidner (2019) have classified digital activism into three types based on their degree of impact:
+    
+    ## Digital spectator activities
+    
+    Clicktivism, Metavoicing, Assertion
+    
+    ## Digital transitional activities
+    
+    Political consumerism
+    Digital petitions
+    Botivism
+    E-funding
+    
+    
+    ## Digital gladiatorial activities
+    
+    Data activism
+    Exposure
+    Hacktivism
+
+    One event can be classified into several categories
+
+## Document the article source and text for check
+
+The flow chat is as follows
 
 ```mermaid
 
 graph TD
-    A[Identify Digital Activism Campaign] --> B{Media coverage?}
-    B -->|Yes| C[Keep in dataset]
+    A[Collect protests event against public firms from LexisNexis, Proquest, GDELT Project, RavenPack and Factiva] --> B{Public firms and protest-related keywords are both mentioned in the news/time period between 2008 and 2019}
+    B -->|Yes| C[Keep in dataset] --> C{Firms is the target of the protest}
     B -->|No| J[Low Priority]
-    C --> D[Business related]
-    D -->|Yes| E[Keep in dataset]
-    D -->|No| F[Low Priority]
+    C --> |Yes| C[Keep in dataset]--> D{Is it physically present on the street}
+    C -->|No| K[Low Priority]
+
+    D -->|Yes| E[Label as in-street protests]
+    D -->|No| 
     E --> G[Data verification on ]
     F --> G[Consider Longevity and Persistence]
     G --> H[Assess Alignment with Societal Trends]
@@ -25,6 +54,9 @@ graph TD
     K -->|No| M[Monitor and Reassess]
 
 ```
+
+# Citations
+George, Jordana J., and Dorothy E. Leidner. "From clicktivism to hacktivism: Understanding digital activism." Information and organization 29.3 (2019): 100249
 
 
 ## Relevance to business operations:
