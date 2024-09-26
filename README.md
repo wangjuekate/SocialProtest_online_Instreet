@@ -37,15 +37,26 @@ The flow chat is as follows
 ```mermaid
 
 graph TD
-    A[Collect protests event against public firms from LexisNexis, Proquest, GDELT Project, RavenPack and Factiva] --> B{Public firms and protest-related keywords are both mentioned in the news/time period between 2008 and 2019}
-    B -->|Yes| I[Keep in dataset] --> C{Firms is the target of the protest}
-    B -->|No| 
-    C --> |Yes| J[Keep in dataset]
-    C -->|No| 
-    C--> D1{Is it physically present on the street}
-    D1 -->|Yes| E[Label as in-street protests]
-    D1 -->|No|
-    C--> D2{Does it include spectator activities}
+    A[Collect protests event] --> B{No duplicated events}
+    B -->|Yes| C[Keep in dataset] 
+    B -->|No|
+    C--> D{Firms is the target of the protest}
+    D --> |Yes| E[Keep in dataset]
+    D -->|No| 
+    
+    E --> F1{Is it physically present on the street}
+    F1 -->|Yes| E[Label as in-street protests]
+    F1 -->|No|
+
+```
+# collect protest events
+
+Collect all the news articles with Public firms and protest-related keywords against public firms from LexisNexis, Proquest, GDELT Project, RavenPack and Factiva
+Time period between 2008 and 2019
+Different websites have different API and keyword searching, so the code for this part is skipped. 
+
+
+E--> D2{Does it include spectator activities}
     D2 -->|Yes| F[Label as digital spectator protests]
     D2 -->|No|
     C --> D3{Does it inlclude transitional activities}
@@ -55,7 +66,6 @@ graph TD
     D4 -->|Yes| H[Label as digital spectator protests]
     D4 -->|No|
 
-```
 
 # Citations
 George, Jordana J., and Dorothy E. Leidner. "From clicktivism to hacktivism: Understanding digital activism." Information and organization 29.3 (2019): 100249
