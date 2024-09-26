@@ -60,105 +60,23 @@ graph TD
  
 
 ```
-# collect protest events
+# Collect protest events
 
 Collect all the news articles with Public firms and protest-related keywords against public firms from LexisNexis, Proquest, GDELT Project, RavenPack and Factiva
+
 Time period between 2008 and 2019
+
 Different websites have different API and keyword searching, so the code for this part is skipped. 
 
+# Collect protest events
 
-E--> D2{Does it include spectator activities}
-    D2 -->|Yes| F[Label as digital spectator protests]
-    D2 -->|No|
-    C --> D3{Does it inlclude transitional activities}
-    D3 -->|Yes| G[Label as digital spectator protests]
-    D3 -->|No|
-    C --> D4{Does it inlclude gladiatorial activities}
-    D4 -->|Yes| H[Label as digital spectator protests]
-    D4 -->|No|
+BERT_model.py classify the article text based on the criteria from B to F. 
+The training set for F1-F4 is stored in training datasets folder. 
 
 
 # Citations
 George, Jordana J., and Dorothy E. Leidner. "From clicktivism to hacktivism: Understanding digital activism." Information and organization 29.3 (2019): 100249
 
 
-## Relevance to business operations:
-Digital activism that directly relates to a firm's products, services, practices, or industry is most likely to matter. This could include:
-
-
-- Campaigns targeting specific company policies
-- Industry-wide movements affecting the business environment
-- Consumer boycotts or buycotts
-
-
-## Reach and virality:
-Assess the scale and spread of the activist content:
-
-
-## Number of participants/supporters
-Geographic spread
-Cross-platform presence
-Viral potential
-
-
-## Stakeholder engagement:
-Consider which stakeholders are involved:
-
-
-Customers
-Employees
-Investors
-Regulators
-Media
-
-
-## Potential business impact:
-Assess possible consequences:
-
-
-## Reputational risks
-Financial implications
-Regulatory scrutiny
-Market share changes
-
-
-## Longevity and persistence:
-Consider the sustainability of the movement:
-
-
-## One-time event vs. ongoing campaign
-Historical context and related movements
-Organizational backing
-
-
-## Alignment with societal trends:
-Evaluate how the activism relates to broader social, environmental, or governance issues:
-
-
-Climate change
-Social justice
-Corporate responsibility
-
-
-## Media coverage:
-Assess mainstream and social media attention:
-
-
-# Sources of Data
-LexisNexis, ProQuest, RavenPack
-
-# Steps
-## Utilize the label from RavenPack
-
-We first collected the news that are 100% related to public firms. 
-
-## Link the news from RavenPack to LexisNexis
-
-Content matching to get the full news. 
-
-
-## Set up machine learning to categorize the news into needed categories
-
-For example online versus offline
 
 
