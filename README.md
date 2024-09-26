@@ -37,16 +37,27 @@ The flow chat is as follows
 ```mermaid
 
 graph TD
-    A[Collect protests event] --> B{No duplicated events}
-    B -->|Yes| C[Keep in dataset] 
-    B -->|No|
-    C--> D{Firms is the target of the protest}
-    D --> |Yes| E[Keep in dataset]
-    D -->|No| 
-    
-    E --> F1{Is it physically present on the street}
-    F1 -->|Yes| E[Label as in-street protests]
-    F1 -->|No|
+    A[Collect protests event] --> B{No duplicated events?}
+    B -->|Yes| C[Keep in dataset]
+    B -->|No| G[Remove from dataset]
+    C --> D{Firms is the target of the protest?}
+    D -->|Yes| E[Keep in dataset]
+    D -->|No| H[Remove from dataset]
+    E --> F1{Is it physically present on the street?}
+    F1 -->|Yes| I[Label as in-street protests]
+    F1 -->|No| J[Label as other type of protest]
+
+    E--> F2{Does it include spectator activities}
+    F2 -->|Yes| K[Label as digital spectator protests]
+    F2 -->|No| J[Label as other type of protest]
+    E --> F3{Does it inlclude transitional activities}
+    F3 -->|Yes| L[Label as digital spectator protests]
+    F3 -->|No| J[Label as other type of protest]
+    E --> F4{Does it inlclude gladiatorial activities}
+    F4 -->|Yes| M[Label as digital spectator protests]
+    F4 -->|No| J[Label as other type of protest]
+
+ 
 
 ```
 # collect protest events
