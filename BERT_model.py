@@ -12,7 +12,7 @@ import os
 
 
 #################convert the train and test into dictionaries##########
-#trainkr.json is a the training set that include both the text that fall into the event category and the event that do not fall into the category.
+#trainkr.json is a the training set that include both the text that fall into the event category and the event that do not fall into the category. Replace it with proper training data set
 
 train = pd.read_json('trainkr.json')
 dicos1 = 'Dictionarykr/kr/'
@@ -20,7 +20,7 @@ dicos2 = 'Dictionarykr/nonkr/'
 os.makedirs(os.path.dirname(dicos1), exist_ok=True) 
 os.makedirs(os.path.dirname(dicos2), exist_ok=True) 
 for index, row in train.iterrows():
-    if row['predict50_kr'] ==1:  
+    if row['predict_kr'] ==1:  
         f = open(dicos1+str(index)+'.txt', 'w')
         f.write(row[0])
         f.close()
@@ -118,4 +118,53 @@ loss, accuracy = classifier_model.evaluate(val_ds)
 print(f'Loss: {loss}')
 print(f'Accuracy: {accuracy}')
 classifier_model.save('BERT_kr', include_optimizer=False)
+
+
+#######the following is classification program
+
+#qsub web_scaping.pbs
+import pandas as pd
+import os
+import shutil
+
+import tensorflow as tf
+import tensorflow_hub as hub
+import tensorflow_text as text
+
+from json import loads
+import pandas as pd
+import concurrent.futures
+import threading
+
+
+mainMutex  = threading.Lock()
+
+newstoclassify = pd.read_json('newsarticletoclassify.json')
+
+classifier_model= tf.saved_model.load('BERT_kr')
+
+checkingdata = newstoclassify.dropna()
+
+def predictionAI(input):
+    original_results = tf.sigmoid(classifier_model(tf.constant([input])))
+    score = 1-original_results.numpy().astype(float)
+    output =score.item()
+    return(output)
+
+
+#Initializing primary DataFrame
+if __name__ == "__main__":
+    main = pd.DataFrame()
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        results = executor.map(predictionAI,checkingdata['newsbody'])
+        executor.shutdown(wait=True)
+    finals = []
+    for value in results:
+         finals.append(value)
+    checkingdata['krscore'] = finals
+    #news_id is the id for the news article
+    #score is to what extend the article can be categorized in 'kr' category [can be instreet, spectactor, etc. categories]. 
+    hardwarestorage = checkingdata[['news_id','score']]
+    hardwarestorage.to_json("krScore.json",orient="records",lines=True)
+
 
