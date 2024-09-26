@@ -38,9 +38,9 @@ The flow chat is as follows
 
 graph TD
     A[Collect protests event against public firms from LexisNexis, Proquest, GDELT Project, RavenPack and Factiva] --> B{Public firms and protest-related keywords are both mentioned in the news/time period between 2008 and 2019}
-    B -->|Yes| C[Keep in dataset] --> C{Firms is the target of the protest}
+    B -->|Yes| I[Keep in dataset] --> C{Firms is the target of the protest}
     B -->|No| 
-    C --> |Yes| C[Keep in dataset]
+    C --> |Yes| J[Keep in dataset]
     C -->|No| 
     C--> D1{Is it physically present on the street}
     D1 -->|Yes| E[Label as in-street protests]
