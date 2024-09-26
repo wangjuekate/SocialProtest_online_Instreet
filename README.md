@@ -60,7 +60,7 @@ graph TD
  
 
 ```
-# Collect protest events
+## Collect protest events
 
 Collect all the news articles with Public firms and protest-related keywords against public firms from LexisNexis, Proquest, GDELT Project, RavenPack and Factiva
 
@@ -68,10 +68,10 @@ Time period between 2008 and 2019
 
 Different websites have different API and keyword searching, so the code for this part is skipped. 
 
-# Collect protest events
+## Classification of the events
 
 BERT_model.py classify the article text based on the criteria from B to F. 
-The training set for F1-F4 is stored in training datasets folder. 
+The training sets for F1-F4 is in the json files.
 
 
 # Citations
